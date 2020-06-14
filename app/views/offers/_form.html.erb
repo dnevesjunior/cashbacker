@@ -1,0 +1,31 @@
+<%= simple_form_for @offer do |form| %>
+  <% if @offer.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2>
+        <%= pluralize(@offer.errors.count, "error") %> prohibited this article from being saved:
+      </h2>
+      <ul>
+        <% @offer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.input :advertiser_name, class: "form-control" %>
+
+  <%= form.input :url, class: "form-control" %>
+
+  <%= form.input :description, class: "form-control" %>
+
+  <%= form.input :starts_at, order: [:day, :month, :year] %>
+
+  <%= form.input :ends_at, include_blank: true, order: [:day, :month, :year] %>
+
+  <%= form.input :premium, class: "form-check-input" %>
+
+  <%= form.button :submit, class: 'btn btn-primary' %>
+
+  <%= link_to 'Back', offers_path, class: 'btn btn-secondary' %>
+
+<% end %>

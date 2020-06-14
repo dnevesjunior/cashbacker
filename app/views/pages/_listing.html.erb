@@ -1,0 +1,17 @@
+<div class="row row-cols-1 row-cols-md-2">
+  <% @offers.each do |offer| %>
+    <div class="col mb-4">
+      <div class="card h-100">
+        <h5 class="card-header">
+          <%= offer.advertiser_name %>
+        </h5>
+        <div class="card-body">
+          <p class="card-text">
+            <%= offer.description %>
+          </p>
+          <%= link_to "Shop Now", offer.url, target: "_blank", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

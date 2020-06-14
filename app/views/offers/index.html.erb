@@ -1,0 +1,27 @@
+<h1>Listing Offers</h1>
+<%= link_to 'New Offer', new_offer_path %>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>url</th>
+      <th>status</th>
+      <th colspan="3">actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.id %></td>
+        <td><%= offer.advertiser_name %></td>
+        <td><%= offer.url %></td>
+        <td><%= offer.premium %></td>
+        <td><%= link_to '[edit]', edit_offer_path(offer) %></td>
+        <td><%= link_to '[enable]', offer_path(offer) %></td>
+        <td><%= link_to '[destroy]', offer_path(offer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
