@@ -6,6 +6,5 @@ FactoryBot.define do
     starts_at { DateTime.now - 3.hours }
     ends_at nil
     premium { Faker::Boolean.boolean }
-    advertiser
   end
 end
