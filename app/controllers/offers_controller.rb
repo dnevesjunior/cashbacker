@@ -22,7 +22,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.permit(:id, :url, :description, :starts_at, :ends_at, :premium)
+    params.permit(:id, :url, :description, :starts_at, :ends_at, :premium, :advertiser_name)
   end
 
   def set_offer
