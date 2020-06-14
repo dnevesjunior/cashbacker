@@ -8,4 +8,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap
 //= require datetime_picker_input

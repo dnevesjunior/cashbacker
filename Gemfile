@@ -22,7 +22,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Twitter bootstrap for styling
+gem 'bootstrap', '~> 4.5.0'
 gem 'twitter-bootstrap-rails'
+gem 'jquery-rails'
 # Simple form for customization
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 # Datetime picker to replace default datetime_select field

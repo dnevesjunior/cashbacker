@@ -1,6 +1,6 @@
-<%= form_with model: @offer, local: true do |form| %>
+<%= simple_form_for @offer do |form| %>
   <% if @offer.errors.any? %>
-    <div id="alert alert-danger" role="alert">
+    <div class="alert alert-danger" role="alert">
       <h2>
         <%= pluralize(@offer.errors.count, "error") %> prohibited this article from being saved:
       </h2>
@@ -12,38 +12,20 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :advertiser_name %><br>
-    <%= form.text_field :advertiser_name, class: "form-control" %>
-  </div>
+  <%= form.input :advertiser_name, class: "form-control" %>
 
-  <div class="form-group">
-    <%= form.label :url %><br>
-    <%= form.text_field :url, class: "form-control" %>
-  </div>
+  <%= form.input :url, class: "form-control" %>
 
-  <div class="form-group">
-    <%= form.label :description %><br>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
+  <%= form.input :description, class: "form-control" %>
 
-  <div class="form-group">
-    <%= form.label :starts_at %><br>
-    <%= form.input :starts_at, as: :date_time_picker %>
-  </div>
+  <%= form.input :starts_at, order: [:day, :month, :year] %>
 
-  <div class="form-group">
-    <%= form.label :ends_at %><br>
-    <%= form.datetime_select :ends_at, { prompt: true, order: [:day, :month, :year] } %>
-  </div>
+  <%= form.input :ends_at, include_blank: true, order: [:day, :month, :year] %>
 
-  <div class="form-check">
-    <%= form.check_box :premium, class: "form-check-input" %>
-    <%= form.label :premium, class: "form-check-label" %>
-  </div>
+  <%= form.input :premium, class: "form-check-input" %>
 
-  <div class="form-group">
-    <%= form.submit %>
-  </div>
+  <%= form.button :submit, class: 'btn btn-primary' %>
+
+  <%= link_to 'Back', offers_path, class: 'btn btn-secondary' %>
 
 <% end %>
