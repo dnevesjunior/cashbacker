@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'pages#main'
 
   scope '/admin' do
-    resources :offers
+    resources :offers do
+      get 'update-status', to: 'offers#status'
+    end
   end
 end

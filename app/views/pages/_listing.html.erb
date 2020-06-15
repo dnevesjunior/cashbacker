@@ -4,6 +4,9 @@
       <div class="card h-100">
         <h5 class="card-header">
           <%= offer.advertiser_name %>
+          <% if offer.premium %>
+            <span class="badge badge-pill badge-info">Premium</span>
+          <% end %>
         </h5>
         <div class="card-body">
           <p class="card-text">
