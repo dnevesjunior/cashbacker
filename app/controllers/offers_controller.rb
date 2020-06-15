@@ -13,7 +13,7 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
 
     if @offer.save
-      redirect_to @offer
+      redirect_to offers_path
     else
       render 'new'
     end
@@ -23,13 +23,9 @@ class OffersController < ApplicationController
 
   end
 
-  def show
-
-  end
-
   def update
     if @offer.update(offer_params)
-      redirect_to @offer
+      redirect_to offers_path
     else
       render 'edit'
     end
@@ -41,10 +37,20 @@ class OffersController < ApplicationController
     redirect_to offers_path
   end
 
+  def status
+    offer = Offer.find(update_status_params[:offer_id])
+    offer.update_attributes(disabled_by_admin: !offer.disabled_by_admin)
+    redirect_to offers_path
+  end
+
   private
 
   def offer_params
     params.require(:offer).permit(:advertiser_name, :url, :description, :starts_at, :ends_at, :premium)
+  end
+
+  def update_status_params
+    params.permit(:offer_id)
   end
 
   def set_offer

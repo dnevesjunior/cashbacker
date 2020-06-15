@@ -17,9 +17,9 @@
         <td><%= offer.id %></td>
         <td><%= offer.advertiser_name %></td>
         <td><%= offer.url %></td>
-        <td><%= offer.premium %></td>
+        <td><%= offer.current_status %></td>
         <td><%= link_to '[edit]', edit_offer_path(offer) %></td>
-        <td><%= link_to '[enable]', offer_path(offer) %></td>
+        <td><%= link_to "[#{reverse_status(offer.current_status)}]", offer_update_status_path(offer.id) %></td>
         <td><%= link_to '[destroy]', offer_path(offer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
